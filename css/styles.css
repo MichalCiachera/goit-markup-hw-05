@@ -29,6 +29,8 @@ body {
   --backgraund-elewen: rgba(0, 0, 0, 0.25);
   --backgraund-twelve: rgba(0, 0, 0, 0.06);
   --backgraund-thirteen: rgba(0, 0, 0, 0.16);
+  --backgraund-fourteen: rgba(47, 48, 58, 0.8);
+  --background-fiveteen: rgba(33, 150, 243, 0.9);
 }
 ul {
   list-style-type: none;
@@ -62,6 +64,26 @@ ul {
 .link:hover,
 .link:focus {
   color: var(--color-two);
+}
+.nav-underline-agency::after {
+  content: "";
+  display: block;
+  width: auto;
+  height: 4px;
+  margin-top: 28px;
+  background-color: var(--color-two);
+  border-radius: 2px;
+  transform: translateY(1px);
+}
+.nav-underline-portfolio::after {
+  content: "";
+  display: block;
+  width: auto;
+  height: 4px;
+  margin-top: 28px;
+  background-color: var(--color-two);
+  border-radius: 2px;
+  transform: translateY(1px);
 }
 .contact {
   font-size: 14px;
@@ -226,7 +248,6 @@ ul {
   justify-content: space-between;
   padding: 0;
   padding-top: 32px;
-  padding-bottom: 32px;
   margin: 0;
   margin-left: 93px;
   gap: 46px;
@@ -250,6 +271,7 @@ ul {
   background-color: var(--bakground-one);
 }
 .container-header-two {
+  display: block;
   color: var(--color-five);
   padding-top: 200px;
   padding-bottom: 200px;
@@ -294,6 +316,24 @@ ul {
 }
 .container-what-we-do-main-box {
   display: inline-block;
+}
+.container-what-we-do-main-img-with-title {
+  margin: 0;
+  position: relative;
+  display: inline-flex;
+}
+.container-what-we-do-main-img-title {
+  position: absolute;
+  left: 0;
+  right: 0;
+  background-color: var(--backgraund-fourteen);
+  color: var(--color-five);
+  bottom: 0;
+  padding: 27px;
+  text-align: center;
+  font-weight: 700;
+  line-height: 1.14;
+  letter-spacing: 0.03em;
 }
 .section-our-team {
   padding-top: 94px;
@@ -361,8 +401,40 @@ ul {
   padding: 0;
   width: 370px;
 }
-.element img {
+.element > img {
   display: block;
+}
+.element-img {
+  position: relative;
+  overflow: hidden;
+}
+.element-img > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.element-description {
+  position: absolute;
+  margin: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: var(--background-fiveteen);
+  color: var(--color-five);
+  padding-top: 49px;
+  padding-left: 24px;
+  padding-right: 45px;
+  padding-bottom: 49px;
+  transform: translateY(110%);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  font-size: 18px;
+  line-height: 1.55;
+  letter-spacing: 0.03em;
+}
+.element:hover .element-description {
+  transform: translateY(0);
 }
 .element-text {
   margin: 0px;
@@ -523,4 +595,49 @@ ul {
   fill: var(--color-five);
   background-color: var(--color-two);
   border-radius: 50%;
+}
+.backdrop {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--backgraund-six);
+}
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 528px;
+  min-height: 581px;
+  background-color: var(--color-five);
+  box-shadow: 0px 1px 3px var(--background-four),
+    0px 1px 1px var(--backgraund-five), 0px 2px 1px var(--backgraund-six);
+  border-radius: 4px;
+}
+.close-btn {
+  display: flex;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 30px;
+  height: 30px;
+  margin: 0;
+  padding: 0;
+  border: 1px solid var(--backgraund-seven);
+  border-radius: 50%;
+  background-color: var(--color-five);
+  fill: var(--color-three);
+  cursor: pointer;
+}
+.close-btn > svg {
+  position: absolute;
+  top: 5.2px;
+  left: 5.2px;
+}
+.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
 }
